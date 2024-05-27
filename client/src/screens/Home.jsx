@@ -1,10 +1,12 @@
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
+
+import RootLayout from '../layouts/RootLayout';
 
 const Home = () => {
   return (
-    <View>
+    <RootLayout>
       <Text className="text-3xl text-orange-500">Home</Text>
-    </View>
+    </RootLayout>
   );
 };
 export default Home;
