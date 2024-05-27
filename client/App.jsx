@@ -1,10 +1,25 @@
-import {View, Text} from 'react-native';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const App = () => {
+import Home from './src/screens/Home';
+import Login from './src/screens/Login';
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View>
-      <Text className="text-3xl text-red-500">App</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{header: () => null}}
+        />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
+}
+
 export default App;
