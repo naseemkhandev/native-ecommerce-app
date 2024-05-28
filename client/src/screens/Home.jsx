@@ -1,5 +1,6 @@
 import Banner from '../components/home/Banner';
 import Categories from '../components/home/Categories';
+import Products from '../components/home/Products';
 import RootLayout from '../layouts/RootLayout';
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <RootLayout>
       <Banner />
       <Categories />
+      <Products />
     </RootLayout>
   );
 };

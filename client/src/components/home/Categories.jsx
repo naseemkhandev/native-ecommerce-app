@@ -6,17 +6,17 @@ import {categories} from '../../data/categories';
 const Categories = () => {
   return (
     <ScrollView
-      className="p-5"
+      className="p-5 pt-3"
       horizontal
       showsHorizontalScrollIndicator={false}>
-      <View className="flex flex-row gap-5">
+      <View className="flex flex-row gap-3">
         {categories.map(category => (
           <TouchableOpacity key={category?.id} activeOpacity={0.6}>
             <View className="w-20 aspect-square bg-grey rounded-full flex items-center justify-center">
               <Icon name={category?.icon} size={35} color="#000000" />
             </View>
 
-            <Text className="text-base text-center mt-1 text-black font-medium">
+            <Text className="text-base text-center mt-1 text-secondary font-medium">
               {category?.name}
             </Text>
           </TouchableOpacity>
