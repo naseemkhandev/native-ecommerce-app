@@ -19,7 +19,7 @@ const Header = () => {
       <View className="relative">
         <TextInput
           placeholder="Search"
-          className="bg-grey w-full rounded-lg py-3.5 pl-5 pr-10"
+          className="bg-grey w-full rounded-xl py-3.5 pl-5 pr-10 text-base text-black"
         />
 
         <TouchableOpacity className="w-5 aspect-square absolute top-[30%] right-4">

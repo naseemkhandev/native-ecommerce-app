@@ -1,11 +1,10 @@
-import {Text} from 'react-native';
-
+import Banner from '../components/home/Banner';
 import RootLayout from '../layouts/RootLayout';
 
 const Home = () => {
   return (
     <RootLayout>
-      <Text className="text-3xl text-orange-500">Home</Text>
+      <Banner />
     </RootLayout>
   );
 };
