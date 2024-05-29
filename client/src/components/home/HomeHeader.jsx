@@ -1,7 +1,7 @@
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Header = () => {
+const HomeHeader = () => {
   return (
     <View className="p-3 gap-y-2">
       <View className="flex-row items-center justify-between">
@@ -29,4 +29,4 @@ const Header = () => {
     </View>
   );
 };
-export default Header;
+export default HomeHeader;

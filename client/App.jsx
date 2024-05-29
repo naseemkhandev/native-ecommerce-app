@@ -6,6 +6,7 @@ import Home from './src/screens/Home';
 import Login from './src/screens/Login';
 import GoBack from './src/components/common/GoBack';
 import Register from './src/screens/Register';
+import ProductDetails from './src/screens/ProductDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,11 @@ function App() {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{header: () => null}}
+        />
+        <Stack.Screen
+          name="ProductDetails"
+          component={ProductDetails}
           options={{header: () => null}}
         />
         <Stack.Screen

@@ -1,11 +1,13 @@
 import Banner from '../components/home/Banner';
 import Categories from '../components/home/Categories';
+import HomeHeader from '../components/home/HomeHeader';
 import Products from '../components/home/Products';
 import RootLayout from '../layouts/RootLayout';
 
 const Home = () => {
   return (
     <RootLayout>
+      <HomeHeader />
       <Banner />
       <Categories />
       <Products />
