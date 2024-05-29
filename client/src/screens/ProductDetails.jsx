@@ -7,15 +7,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useEffect, useState} from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import ProductDetailsHeader from '../components/products/ProductDetailsHeader';
 import {products} from '../data/products';
 
 const ProductDetails = ({route}) => {
   const [productDetails, setProductDetails] = useState({});
+  const [quantity, setQuantity] = useState(1);
   const id = route?.params?._id;
-  console.log(id, productDetails);
 
   const getProductDetails = () => {
     const product = products.find(product => product.id === id);
@@ -63,7 +63,7 @@ const ProductDetails = ({route}) => {
 
           <View className="flex flex-row items-center gap-2 mt-2">
             <View className="rounded-full px-2 pr-4 py-0.5 border border-grey flex flex-row items-center gap-x-1.5">
-              <Icon name="star" size={15} color="#FFD700" />
+              <FontAwesome name="star" size={15} color="#FFD700" />
               <Text className="text-black font-semibold text-lg">
                 {productDetails?.rating}
               </Text>
@@ -79,21 +79,28 @@ const ProductDetails = ({route}) => {
         </View>
       </ScrollView>
 
-      <View className="flex flex-row items-end justify-between px-5 py-3 bg-white shadow-lg shadow-black/50 mb-6 gap-x-5">
-        <View className="">
-          <Text className="capitalize text-left text-neutral-500 text-lg">
-            Total:
-          </Text>
-          <Text className="capitalize text-3xl text-left font-bold text-secondary">
-            ${productDetails?.price}.00
-          </Text>
-        </View>
-
+      <View className="flex flex-row items-center justify-between px-5 py-3 bg-white shadow-lg shadow-black/50 mb-5 gap-x-3">
         <TouchableOpacity className="bg-primary p-5 rounded-2xl flex-1">
-          <Text className="text-lg font-semibold text-white text-center">
+          <Text className="text-xl font-semibold text-white text-center">
             Add to cart
           </Text>
         </TouchableOpacity>
+
+        <View className="flex flex-row items-center gap-x-3">
+          <TouchableOpacity
+            onPress={() => setQuantity(Math.max(1, quantity - 1))}
+            className="border-grey border-[2px] p-3.5 rounded-2xl">
+            <FontAwesome name="minus" size={18} color="#2A2A2A" />
+          </TouchableOpacity>
+          <Text className="text-lg font-semibold text-black text-center">
+            {quantity}
+          </Text>
+          <TouchableOpacity
+            onPress={() => setQuantity(quantity + 1)}
+            className="border-primary border-[2px] p-3.5 rounded-2xl">
+            <FontAwesome name="plus" size={18} color="#19C463" />
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
