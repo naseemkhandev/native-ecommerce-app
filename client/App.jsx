@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
 import Login from './src/screens/Login';
 import GoBack from './src/components/common/GoBack';
+import Register from './src/screens/Register';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,13 @@ function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{
+            header: () => <GoBack />,
+          }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
           options={{
             header: () => <GoBack />,
           }}

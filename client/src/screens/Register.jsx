@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-const Login = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigation = useNavigation();
 
@@ -19,13 +19,14 @@ const Login = () => {
       <View className="flex-1 w-full items-center pt-5 bg-white">
         <View className="px-5 w-full max-w-sm">
           <Text className="text-4xl font-extrabold mb-5 text-secondary">
-            Welcome back!
-          </Text>
-          <Text className="text-3xl font-medium text-secondary">
-            You've been missed!
+            Welcome to EStore
           </Text>
 
-          <View className="flex flex-col gap-y-4 mt-5">
+          <View className="flex flex-col gap-y-4">
+            <TextInput
+              placeholder="Enter username"
+              className="bg-transparent border-[3px] border-grey p-3.5 px-5 text-base rounded-xl"
+            />
             <TextInput
               placeholder="Enter email address"
               className="bg-transparent border-[3px] border-grey p-3.5 px-5 text-base rounded-xl"
@@ -80,18 +81,18 @@ const Login = () => {
           <View className="text-center mt-auto">
             <View className="flex-row items-center justify-center gap-1">
               <Text className="text-lg text-center">
-                Don't have an account?
+                Already have an account?
               </Text>
-              <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                 <Text className="text-secondary font-semibold text-lg">
-                  Register
+                  Sign in
                 </Text>
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity className="w-full bg-black p-5 rounded-xl mt-6">
+            <TouchableOpacity className="bg-black p-5 rounded-xl mt-6">
               <Text className="text-white text-center font-semibold text-lg">
-                Sign in
+                Register
               </Text>
             </TouchableOpacity>
           </View>
@@ -101,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
