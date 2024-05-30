@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import {useState} from 'react';
 import {
@@ -8,11 +7,29 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  Alert,
 } from 'react-native';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
-  const navigation = useNavigation();
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (name, value) => {
+    setUserData({...userData, [name]: value});
+  };
+
+  const handleSubmit = () => {
+    if (!userData.email || !userData.password) {
+      Alert.alert('Please fill all fields');
+      return;
+    }
+
+    Alert.alert('Login Successful');
+    navigation.navigate('Home');
+  };
 
   return (
     <ScrollView className="bg-white">
@@ -28,11 +45,15 @@ const Login = () => {
           <View className="flex flex-col gap-y-4 mt-5">
             <TextInput
               placeholder="Enter email address"
+              value={userData.email}
+              onChangeText={value => handleChange('email', value)}
               className="bg-transparent border-[3px] border-grey p-3.5 px-5 text-base rounded-xl"
             />
             <View className="relative">
               <TextInput
                 placeholder="Enter password"
+                value={userData.password}
+                onChangeText={value => handleChange('password', value)}
                 secureTextEntry={!showPassword}
                 className="bg-transparent border-[3px] border-grey p-3.5 px-5 text-base rounded-xl"
               />
@@ -89,7 +110,9 @@ const Login = () => {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity className="w-full bg-black p-5 rounded-xl mt-6">
+            <TouchableOpacity
+              onPress={handleSubmit}
+              className="w-full bg-black p-5 rounded-xl mt-6">
               <Text className="text-white text-center font-semibold text-lg">
                 Sign in
               </Text>
