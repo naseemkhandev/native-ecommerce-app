@@ -10,6 +10,7 @@ import ProductDetails from './src/screens/ProductDetails';
 import Cart from './src/screens/Cart';
 import Checkout from './src/screens/Checkout';
 import Profile from './src/screens/Profile';
+import Notifications from './src/screens/Notifications';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,11 @@ function App() {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{header: () => null}}
+        />
+        <Stack.Screen
+          name="Notifications"
+          component={Notifications}
           options={{header: () => null}}
         />
         <Stack.Screen

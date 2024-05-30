@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Text, TouchableOpacity, View} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const CartHeader = () => {
+const NotificationsHeader = () => {
   const navigation = useNavigation();
 
   return (
@@ -14,7 +14,7 @@ const CartHeader = () => {
         <Entypo name="chevron-thin-left" size={20} color="#000" />
       </TouchableOpacity>
 
-      <Text className="text-lg font-semibold text-black">My Cart</Text>
+      <Text className="text-lg font-semibold text-black">Notifications</Text>
 
       <TouchableOpacity
         className="p-3 bg-white rounded-full border border-grey"
@@ -24,4 +24,4 @@ const CartHeader = () => {
     </View>
   );
 };
-export default CartHeader;
+export default NotificationsHeader;

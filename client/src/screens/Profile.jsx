@@ -1,15 +1,22 @@
-import {View, Text, SafeAreaView, ScrollView, Image} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-import AccountHeader from '../components/account/AccountHeader';
+import ProfileHeader from '../components/profile/ProfileHeader';
 import {userData} from '../data/userData';
 import RootLayout from '../layouts/RootLayout';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   return (
     <RootLayout>
       <SafeAreaView className="flex-1 bg-white">
-        <AccountHeader />
+        <ProfileHeader />
 
         <ScrollView className="flex-1 mt-16">
           <View className="flex flex-col gap-y-5 p-5">
@@ -47,10 +54,12 @@ const Profile = () => {
                 <Icon name="list" size={20} className="text-secondary" />
                 <Text className="text-lg text-black">My Orders</Text>
               </View>
-              <View className="flex flex-row items-center gap-x-3">
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Notifications')}
+                className="flex flex-row items-center gap-x-3">
                 <Icon name="bell" size={20} className="text-secondary" />
                 <Text className="text-lg text-black">Notifications</Text>
-              </View>
+              </TouchableOpacity>
               {userData.isAdmin && (
                 <View className="flex flex-row items-center gap-x-3">
                   <Icon name="shield" size={20} className="text-secondary" />

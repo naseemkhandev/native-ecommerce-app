@@ -11,7 +11,7 @@ const Footer = () => {
   const user = true;
 
   return (
-    <View className="bg-white shadow-xl shadow-black w-full px-5 pt-2 pb-7 z-50 flex items-center flex-row justify-between">
+    <View className="bg-white shadow-xl shadow-black w-full px-5 pt-3 pb-5 z-50 flex items-center flex-row justify-between">
       {footer.map((item, index) => (
         <TouchableOpacity
           key={index}
@@ -30,7 +30,7 @@ const Footer = () => {
           <Icon
             name={item.icon}
             color={route?.name === item?.text ? '#48D861' : '#2A2A2A'}
-            size={30}
+            size={25}
           />
           <Text
             className={`text-center ${

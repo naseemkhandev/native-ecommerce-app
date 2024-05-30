@@ -12,6 +12,10 @@ export const footer = [
     text: 'Favourite',
   },
   {
+    icon: 'bell',
+    text: 'Notifications',
+  },
+  {
     icon: 'user',
     text: 'Profile',
   },
