@@ -8,7 +8,7 @@ const Footer = () => {
   const navigation = useNavigation();
   const route = useRoute();
 
-  const user = false;
+  const user = true;
 
   return (
     <View className="bg-white shadow-xl shadow-black w-full px-5 pt-2 pb-7 z-50 flex items-center flex-row justify-between">

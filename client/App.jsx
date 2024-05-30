@@ -9,6 +9,7 @@ import Register from './src/screens/Register';
 import ProductDetails from './src/screens/ProductDetails';
 import Cart from './src/screens/Cart';
 import Checkout from './src/screens/Checkout';
+import Profile from './src/screens/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,11 @@ function App() {
           name="Checkout"
           component={Checkout}
           options={{header: () => <GoBack />}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{header: () => null}}
         />
         <Stack.Screen
           name="Login"
