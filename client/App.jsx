@@ -7,6 +7,7 @@ import Login from './src/screens/Login';
 import GoBack from './src/components/common/GoBack';
 import Register from './src/screens/Register';
 import ProductDetails from './src/screens/ProductDetails';
+import Cart from './src/screens/Cart';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,11 @@ function App() {
         <Stack.Screen
           name="ProductDetails"
           component={ProductDetails}
+          options={{header: () => null}}
+        />
+        <Stack.Screen
+          name="Cart"
+          component={Cart}
           options={{header: () => null}}
         />
         <Stack.Screen

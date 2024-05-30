@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {useEffect, useState} from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {useNavigation} from '@react-navigation/native';
 
 import ProductDetailsHeader from '../components/products/ProductDetailsHeader';
 import {products} from '../data/products';
@@ -15,6 +16,7 @@ import {products} from '../data/products';
 const ProductDetails = ({route}) => {
   const [productDetails, setProductDetails] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const navigation = useNavigation();
   const id = route?.params?._id;
 
   const getProductDetails = () => {
@@ -80,7 +82,9 @@ const ProductDetails = ({route}) => {
       </ScrollView>
 
       <View className="flex flex-row items-center justify-between px-5 py-3 bg-white shadow-lg shadow-black/50 mb-5 gap-x-3">
-        <TouchableOpacity className="bg-primary p-5 rounded-2xl flex-1">
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Cart', {id, quantity})}
+          className="bg-primary p-5 rounded-2xl flex-1">
           <Text className="text-xl font-semibold text-white text-center">
             Add to cart
           </Text>
