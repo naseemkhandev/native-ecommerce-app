@@ -6,14 +6,14 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import {useState} from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
 import CartHeader from '../components/cart/CartHeader';
 import {products} from '../data/products';
-import {useState} from 'react';
 
-const Cart = () => {
+const Cart = ({navigation}) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
@@ -105,7 +105,7 @@ const Cart = () => {
 
           <View className="border-t border-grey pt-3">
             <TouchableOpacity
-              onPress={() => navigation.navigate('Cart', {id, quantity})}
+              onPress={() => navigation.navigate('Checkout')}
               className="bg-primary p-5 rounded-2xl">
               <Text className="text-lg text-white text-center">
                 Checkout for{' '}

@@ -8,6 +8,7 @@ import GoBack from './src/components/common/GoBack';
 import Register from './src/screens/Register';
 import ProductDetails from './src/screens/ProductDetails';
 import Cart from './src/screens/Cart';
+import Checkout from './src/screens/Checkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ function App() {
           name="Cart"
           component={Cart}
           options={{header: () => null}}
+        />
+        <Stack.Screen
+          name="Checkout"
+          component={Checkout}
+          options={{header: () => <GoBack />}}
         />
         <Stack.Screen
           name="Login"
