@@ -46,10 +46,14 @@ const Profile = ({navigation}) => {
                 Account Settings
               </Text>
 
-              <View className="flex flex-row items-center gap-x-3">
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('Edit Profile', {id: userData?.id})
+                }
+                className="flex flex-row items-center gap-x-3">
                 <Icon name="edit" size={20} className="text-secondary" />
                 <Text className="text-lg text-black">Edit Profile</Text>
-              </View>
+              </TouchableOpacity>
               <View className="flex flex-row items-center gap-x-3">
                 <Icon name="list" size={20} className="text-secondary" />
                 <Text className="text-lg text-black">My Orders</Text>
