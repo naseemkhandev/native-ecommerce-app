@@ -54,10 +54,16 @@ const Profile = ({navigation}) => {
                 <Icon name="edit" size={20} className="text-secondary" />
                 <Text className="text-lg text-black">Edit Profile</Text>
               </TouchableOpacity>
-              <View className="flex flex-row items-center gap-x-3">
+
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('Orders', {id: userData?.id})
+                }
+                className="flex flex-row items-center gap-x-3">
                 <Icon name="list" size={20} className="text-secondary" />
                 <Text className="text-lg text-black">My Orders</Text>
-              </View>
+              </TouchableOpacity>
+
               <TouchableOpacity
                 onPress={() => navigation.navigate('Notifications')}
                 className="flex flex-row items-center gap-x-3">

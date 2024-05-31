@@ -1,17 +1,18 @@
-import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import * as React from 'react';
 
-import Home from './src/screens/Home';
-import Login from './src/screens/Login';
 import GoBack from './src/components/common/GoBack';
-import Register from './src/screens/Register';
-import ProductDetails from './src/screens/ProductDetails';
 import Cart from './src/screens/Cart';
 import Checkout from './src/screens/Checkout';
-import Profile from './src/screens/Profile';
-import Notifications from './src/screens/Notifications';
 import EditProfile from './src/screens/EditProfile';
+import Home from './src/screens/Home';
+import Login from './src/screens/Login';
+import Notifications from './src/screens/Notifications';
+import ProductDetails from './src/screens/ProductDetails';
+import Profile from './src/screens/Profile';
+import Register from './src/screens/Register';
+import Orders from './src/screens/Orders';
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +53,11 @@ function App() {
         <Stack.Screen
           name="Edit Profile"
           component={EditProfile}
+          options={{header: () => null}}
+        />
+        <Stack.Screen
+          name="Orders"
+          component={Orders}
           options={{header: () => null}}
         />
         <Stack.Screen

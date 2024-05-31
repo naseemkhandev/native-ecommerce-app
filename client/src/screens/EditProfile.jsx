@@ -1,18 +1,18 @@
+import {useState} from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
+  Alert,
+  Image,
   SafeAreaView,
+  ScrollView,
+  Text,
   TextInput,
   TouchableOpacity,
-  Image,
-  Alert,
+  View,
 } from 'react-native';
-import {useState} from 'react';
 
 import ProfileHeader from '../components/profile/ProfileHeader';
-import RootLayout from '../layouts/RootLayout';
 import {userData} from '../data/userData';
+import RootLayout from '../layouts/RootLayout';
 
 const EditProfile = ({navigation}) => {
   const [updateUserData, setUpdateUserData] = useState({
@@ -32,10 +32,9 @@ const EditProfile = ({navigation}) => {
   };
 
   return (
-    <RootLayout>
-      <SafeAreaView className="flex-1 bg-white">
-        <ProfileHeader />
-
+    <SafeAreaView className="flex-1 bg-white">
+      <ProfileHeader />
+      <RootLayout>
         <ScrollView className="flex-1 mt-16">
           <View className="p-5 flex flex-col gap-y-4">
             <Image
@@ -75,8 +74,8 @@ const EditProfile = ({navigation}) => {
             </TouchableOpacity>
           </View>
         </ScrollView>
-      </SafeAreaView>
-    </RootLayout>
+      </RootLayout>
+    </SafeAreaView>
   );
 };
 export default EditProfile;
