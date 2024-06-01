@@ -1,7 +1,7 @@
-export const registerUser = async (req, res) => {
+export const registerUser = async (req, res, next) => {
   try {
-    console.log("register route");
+    console.log("register route".bgRed);
   } catch (error) {
-    console.log(error);
+    next(error.message);
   }
 };
