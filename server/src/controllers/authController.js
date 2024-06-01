@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 
 import User from "../models/UserModel.js";
 import createError from "../utils/createError.js";
+import generateToken from "../utils/generateToken.js";
 
 export const registerUser = async (req, res, next) => {
   try {
@@ -25,14 +26,16 @@ export const registerUser = async (req, res, next) => {
       password: hashedPassword,
     });
 
+    const token = generateToken(user._id, user.isAdmin, res);
     const { password: _, ...userInfo } = user._doc;
 
     res.status(201).json({
       message: "User has been registered successfully!",
       user: userInfo,
+      token,
     });
   } catch (error) {
-    next(error.message);
+    next(error);
   }
 };
 
@@ -49,13 +52,15 @@ export const loginUser = async (req, res, next) => {
     const decodedPassword = await bcrypt.compare(password, userExists.password);
     if (!decodedPassword) return next(createError(400, "Wrong Credentials"));
 
+    const token = generateToken(userExists._id, userExists.isAdmin, res);
     const { password: _, ...userInfo } = userExists._doc;
 
     res.status(200).json({
       message: "User has been logged in successfully!",
       user: userInfo,
+      token,
     });
   } catch (error) {
-    next(error.message);
+    next(error);
   }
 };
