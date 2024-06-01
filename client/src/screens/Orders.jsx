@@ -80,6 +80,15 @@ const Orders = () => {
                   </View>
                 </View>
               ))}
+              <View className="p-3">
+                <Text className="text-base font-medium">
+                  Order Number: {order?.orderNumber}
+                </Text>
+
+                <Text className="text-lg font-semibold text-black">
+                  Total Amount: ${order?.totalAmount}
+                </Text>
+              </View>
             </View>
           ))}
         </ScrollView>
