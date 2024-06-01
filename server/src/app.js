@@ -3,6 +3,8 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
+import authRoute from "./routes/authRoute.js";
+
 const app = express();
 
 // Middlewares
@@ -14,5 +16,8 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("<h1>Server is Running...</h1>");
 });
+
+// Routes
+app.use("/api/v1/auth", authRoute);
 
 export default app;
