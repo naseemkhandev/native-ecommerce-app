@@ -35,3 +35,27 @@ export const registerUser = async (req, res, next) => {
     next(error.message);
   }
 };
+
+export const loginUser = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password)
+      return next(createError(400, "Please fill in all fields"));
+
+    const userExists = await User.findOne({ email });
+    if (!userExists) return next(createError(400, "Wrong Credentials"));
+
+    const decodedPassword = await bcrypt.compare(password, userExists.password);
+    if (!decodedPassword) return next(createError(400, "Wrong Credentials"));
+
+    const { password: _, ...userInfo } = userExists._doc;
+
+    res.status(200).json({
+      message: "User has been logged in successfully!",
+      user: userInfo,
+    });
+  } catch (error) {
+    next(error.message);
+  }
+};
