@@ -9,7 +9,7 @@ const startServer = async () => {
     connectToDB();
 
     app.listen(config.port, () => {
-      console.log(`Server is running on port ${config.port}`.bgMagenta.white);
+      console.log(`Server is running on port ${config.port}`.bgCyan);
     });
   } catch (error) {
     console.log(error);
