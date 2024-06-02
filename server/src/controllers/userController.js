@@ -1,6 +1,8 @@
 import bcrypt from "bcryptjs";
+import { v2 as cloudinary } from "cloudinary";
 
 import User from "../models/UserModel.js";
+import getDataUri from "../utils/getDataUri.js";
 
 export const getUserProfile = async (req, res, next) => {
   try {
@@ -33,6 +35,32 @@ export const updateUserProfile = async (req, res, next) => {
 
     res.status(200).json({
       message: "User profile updated successfully!",
+      user: updatedUser,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateUserProfileImage = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.userId);
+    const file = getDataUri(req.file).content;
+
+    if (user.profileImage.public_id) {
+      await cloudinary.uploader.destroy(user.profileImage.public_id);
+    }
+
+    const uploadedImage = await cloudinary.uploader.upload(file);
+    user.profileImage = {
+      public_id: uploadedImage.public_id,
+      url: uploadedImage.secure_url,
+    };
+
+    const updatedUser = await user.save();
+
+    res.status(200).json({
+      message: "User profile image updated successfully!",
       user: updatedUser,
     });
   } catch (error) {
