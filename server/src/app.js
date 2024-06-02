@@ -6,6 +6,7 @@ import { v2 as cloudinary } from "cloudinary";
 
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
+import productRoute from "./routes/productRoute.js";
 import handleError from "./middlewares/handleError.js";
 import { config } from "./config/config.js";
 
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
 // Routes
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRoute);
+app.use("/api/v1/products", productRoute);
 
 // Error Handler
 app.use(handleError);
