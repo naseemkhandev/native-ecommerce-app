@@ -64,3 +64,16 @@ export const loginUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const logoutUser = async (req, res, next) => {
+  try {
+    res
+      .clearCookie("token", {
+        maxAge: 0,
+      })
+      .status(200)
+      .json({ message: "Logged Out Successfully" });
+  } catch (error) {
+    next(error);
+  }
+};
